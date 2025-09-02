@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MHT-CET College Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; }
+        h1 { text-align: center; color: #333; }
+        label { font-weight: bold; display: block; margin-top: 20px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; margin-top: 30px; background-color: #007BFF; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MHT-CET College Predictor</h1>
+        <form action="/predict" method="post">
+            <label for="percentile">Enter Your MHT-CET Percentile:</label>
+            <input type="number" step="0.01" id="percentile" name="percentile" required>
+
+            <label for="category">Select Your Category:</label>
+            <select id="category" name="category" required>
+                {% for cat in categories %}
+                    <option value="{{ cat }}">{{ cat }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="branch">Select Your Branch:</label>
+            <select id="branch" name="branch" required>
+                {% for b in branches %}
+                    <option value="{{ b }}">{{ b }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Predict Colleges</button>
+        </form>
+        <p class="text-item"><b>Legends:</b> Starting character G-General, L-Ladies, End character H-Home University, O-Other than Home University,S-State Level.</p>
+    </div>
+</body>
+</html>
