@@ -33,7 +33,7 @@ def predict():
     ]
 
     result_df = filtered_df[
-        (filtered_df['Percentile'] >= user_percentile - 20) &
+        (filtered_df['Percentile'] >= user_percentile - 33) &
         (filtered_df['Percentile'] <= user_percentile + 5)
     ].copy()
 
